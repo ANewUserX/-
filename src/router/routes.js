@@ -1,0 +1,105 @@
+const routes = [
+  {
+    path:'/',
+    redirect:'/home'
+  },
+  {
+    path:'/home',
+    name:'home',
+    component:() => import('views/Home'),
+    meta:{
+      isShowFooter:true,
+      isShowHeader:true
+    }
+  },
+  {
+    path:'/news',
+    name:'news',
+    component:() => import('views/News'),
+    meta:{
+      isShowFooter:true,
+      isShowHeader:true
+    }
+  },
+  {
+    path:'/plugin',
+    name:'plugin',
+    component:() => import('views/Plugin'),
+    meta:{
+      isShowFooter:false,
+      isShowHeader:true
+    }
+  },
+  {
+    path:'/login',
+    name:'login',
+    component:() => import('views/Login'),
+    meta:{
+      isShowFooter:false,
+      isShowHeader:false
+    }
+  },
+  {
+    path:'/register',
+    name:'register',
+    component:() => import('views/Register'),
+    meta:{
+      isShowFooter:false,
+      isShowHeader:false
+    }
+  },
+  {
+    path:'/search',
+    name:'search',
+    component:()=>import('views/Search'),
+    meta:{
+      isShowFooter:true,
+      isShowHeader:true
+    }
+  },
+  {
+    path:'/file',
+    name:'file',
+    component:()=>import('views/File'),
+    meta:{
+      isShowFooter:true,
+      isShowHeader:true
+    },
+    chidren:[
+      {
+        path:'teachfile',
+        name:'teachfile',
+        component:()=>import('views/File/TeachFile')
+      },
+      {
+        path:'hotfile',
+        name:'hotfile',
+        component:()=>import('views/File/HotFile')
+      },
+      {
+        path:'/',
+        redirect:'hotfile'
+      }
+    ]
+  },
+  {
+    path:'/collect',
+    name:'collect',
+    component:()=>import('views/Collect'),
+    meta:{
+      isShowFooter:true,
+      isShowHeader:true
+    }
+  },
+  {
+    path:'/detail',
+    name:'detail',
+    component:()=>import('views/Detail'),
+    meta:{
+      isShowFooter:true,
+      isShowHeader:true
+    }
+  }
+]
+
+export default routes
